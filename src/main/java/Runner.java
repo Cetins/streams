@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.OptionalDouble;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Runner {
@@ -57,9 +58,17 @@ public class Runner {
 //                .average()
 //                .getAsDouble();
 
-        int result = Stream.of(99, 1, 2, 3, 56, 4, 5, 28, 6, 7)
-                .mapToInt(n -> n)
-                .max()
-                .getAsInt();
+//        int result = Stream.of(99, 1, 2, 3, 56, 4, 5, 28, 6, 7)
+//                .mapToInt(n -> n)
+//                .max()
+//                .getAsInt();
+
+        int result = IntStream.of(99, 1, 2, 3, 56, 4, 5, 28, 6, 7)
+                .peek(numbers -> System.out.printf("original %d%n", numbers))
+                .map(number -> number *2)
+                .peek(numbers -> System.out.println(numbers))
+                .sum();
+
+        System.out.println(result);
     }
 }
